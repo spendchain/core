@@ -108,19 +108,15 @@ export class DelegateTracker {
             }
         }
 
-        this.logger.warning(JSON.stringify({
-            method: 'nextForgers',
-            result: nextForgers
-        }, null, 4))
-        // @ts-ignore
-        this.logger.warning(JSON.stringify({
-            method: 'DelegateTracker#nextForgers',
-            result: {
-                height,
-                timestamp,
-                nextForgers
-            }
-        }, null, 4))
+        // // @ts-ignore
+        // this.logger.warning(JSON.stringify({
+        //     method: 'DelegateTracker#nextForgers',
+        //     result: {
+        //         height,
+        //         timestamp,
+        //         nextForgers
+        //     }
+        // }, null, 4))
 
         if (activeDelegatesPublicKeys.length < maxDelegates) {
             return this.logger.warning(
