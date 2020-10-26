@@ -285,8 +285,18 @@ export class DatabaseInteraction {
                 delegates[newIndex] = delegates[i];
                 delegates[i] = b;
             }
+
+            // @ts-ignore
+            this.logger.warning(`seed: ${currentSeed}`)
+
             currentSeed = Crypto.HashAlgorithms.sha256(currentSeed);
         }
+
+        // @ts-ignore
+        this.logger.warning(JSON.stringify({
+            method: "getActiveDelegates#delegates",
+            result: delegates
+        }, null, 4))
 
         return delegates;
     }

@@ -79,12 +79,6 @@ export class DelegateTracker {
             (delegate: Contracts.State.Wallet) => delegate.publicKey,
         );
 
-        // @ts-ignore
-        this.logger.warning(JSON.stringify({
-            method: "DelegateTracker#activeDelegatesPublicKeys",
-            result: activeDelegatesPublicKeys
-        }, null, 4))
-
         const blockTimeLookup = await Utils.forgingInfoCalculator.getBlockTimeLookup(this.app, height);
 
         const forgingInfo: Contracts.Shared.ForgingInfo = Utils.forgingInfoCalculator.calculateForgingInfo(
