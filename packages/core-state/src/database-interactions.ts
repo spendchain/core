@@ -240,6 +240,8 @@ export class DatabaseInteraction {
             roundInfo = AppUtils.roundCalculator.calculateRound(lastBlock.data.height);
         }
 
+        this.logger.warning(JSON.stringify({ roundInfo }, null, 4))
+
         const { round } = roundInfo;
 
         if (this.forgingDelegates.length && this.forgingDelegates[0].getAttribute<number>("delegate.round") === round) {
