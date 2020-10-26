@@ -71,15 +71,6 @@ export class DelegateTracker {
         const blockTime: number = CryptoUtils.calculateBlockTime(height);
         const round: Contracts.Shared.RoundInfo = Utils.roundCalculator.calculateRound(height);
 
-        this.logger.warning(JSON.stringify({
-            method: 'activeDelegates',
-            result: {
-                height,
-                timestamp,
-                round
-            }
-        }, null, 4))
-
         const activeDelegates = (await this.app
             .get<Services.Triggers.Triggers>(Container.Identifiers.TriggerService)
             .call("getActiveDelegates", { roundInfo: round })) as Contracts.State.Wallet[];
@@ -98,9 +89,15 @@ export class DelegateTracker {
 
         // @ts-ignore
         this.logger.warning(JSON.stringify({
-            method: 'DelegateTracker#activeDelegatesPublicKeys',
-            result: activeDelegatesPublicKeys
+            method: 'activeDelegatesPublicKeys',
+            result: {
+                height,
+                timestamp,
+                round,
+                activeDelegatesPublicKeys
+            }
         }, null, 4))
+
 
         // Determine Next Forgers...
         const nextForgers: string[] = [];
