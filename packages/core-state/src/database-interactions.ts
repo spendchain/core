@@ -270,6 +270,11 @@ export class DatabaseInteraction {
         const seedSource: string = round.toString();
         let currentSeed: Buffer = Crypto.HashAlgorithms.sha256(seedSource);
 
+        this.logger.warning(JSON.stringify({
+            seedSource,
+            currentSeed: currentSeed.toString('hex'),
+        }, null, 4))
+
         delegates = delegates.map((delegate) => delegate.clone());
         for (let i = 0, delCount = delegates.length; i < delCount; i++) {
             for (let x = 0; x < 4 && i < delCount; i++, x++) {
