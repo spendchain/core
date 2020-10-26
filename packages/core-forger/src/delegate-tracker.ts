@@ -109,6 +109,7 @@ export class DelegateTracker {
             method: 'DelegateTracker#nextForgers',
             result: {
                 height,
+                timestamp,
                 nextForgers
             }
         }, null, 4))
