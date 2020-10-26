@@ -240,7 +240,7 @@ export class DatabaseInteraction {
             roundInfo = AppUtils.roundCalculator.calculateRound(lastBlock.data.height);
         }
 
-        this.logger.warning(JSON.stringify({ roundInfo, height: this.stateStore.getLastBlock().height }, null, 4))
+        this.logger.warning(JSON.stringify({ roundInfo, height: this.stateStore.getLastBlock().data.height }, null, 4))
 
         const { round } = roundInfo;
 
