@@ -260,7 +260,7 @@ export class DatabaseInteraction {
             });
             this.logger.warning(JSON.stringify({
                 method: 'delegates',
-                result: delegates
+                result: delegates?.map(d => d.publicKey)
             }, null, 4))
 
         }
