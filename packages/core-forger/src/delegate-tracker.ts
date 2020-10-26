@@ -73,8 +73,13 @@ export class DelegateTracker {
 
         this.logger.warning(JSON.stringify({
             method: 'activeDelegates',
-            result: round
+            result: {
+                height,
+                timestamp,
+                round
+            }
         }, null, 4))
+
         const activeDelegates = (await this.app
             .get<Services.Triggers.Triggers>(Container.Identifiers.TriggerService)
             .call("getActiveDelegates", { roundInfo: round })) as Contracts.State.Wallet[];
