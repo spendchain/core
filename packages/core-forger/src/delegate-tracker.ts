@@ -104,12 +104,6 @@ export class DelegateTracker {
             }
         }
 
-        // @ts-ignore
-        this.logger.warning(JSON.stringify({
-            method: "DelegateTracker#nextForgers",
-            result: nextForgers
-        }, null, 4))
-
         if (activeDelegatesPublicKeys.length < maxDelegates) {
             return this.logger.warning(
                 `Tracker only has ${Utils.pluralize(
