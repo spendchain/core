@@ -238,9 +238,9 @@ export class DatabaseInteraction {
             // ! use this.stateStore.getLastBlock()
             const lastBlock = await this.databaseService.getLastBlock();
             roundInfo = AppUtils.roundCalculator.calculateRound(lastBlock.data.height);
+            this.logger.warning(JSON.stringify({ roundInfo, height: lastBlock.data.height }, null, 4))
         }
 
-        this.logger.warning(JSON.stringify({ roundInfo }, null, 4))
 
         const { round } = roundInfo;
 
