@@ -258,6 +258,11 @@ export class DatabaseInteraction {
                 });
                 return wallet;
             });
+            this.logger.warning(JSON.stringify({
+                method: 'delegates',
+                result: delegates
+            }, null, 4))
+
         }
 
         for (const delegate of delegates) {
