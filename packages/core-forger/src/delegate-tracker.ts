@@ -71,6 +71,12 @@ export class DelegateTracker {
         const blockTime: number = CryptoUtils.calculateBlockTime(height);
         const round: Contracts.Shared.RoundInfo = Utils.roundCalculator.calculateRound(height);
 
+        // @ts-ignore
+        this.logger.warning(JSON.stringify({
+            method: "DelegateTracker#round",
+            result: round
+        }))
+
         const activeDelegates = (await this.app
             .get<Services.Triggers.Triggers>(Container.Identifiers.TriggerService)
             .call("getActiveDelegates", { roundInfo: round })) as Contracts.State.Wallet[];
