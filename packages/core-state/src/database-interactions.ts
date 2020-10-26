@@ -278,6 +278,9 @@ export class DatabaseInteraction {
         }, null, 4))
 
         delegates = delegates.map((delegate) => delegate.clone());
+        // @ts-ignore
+        this.logger.warning(JSON.stringify(delegates.map(d => d.publicKey), null, 4))
+
         for (let i = 0, delCount = delegates.length; i < delCount; i++) {
             for (let x = 0; x < 4 && i < delCount; i++, x++) {
                 const newIndex = currentSeed[x] % delCount;
@@ -291,12 +294,6 @@ export class DatabaseInteraction {
 
             currentSeed = Crypto.HashAlgorithms.sha256(currentSeed);
         }
-
-        // @ts-ignore
-        this.logger.warning(JSON.stringify({
-            method: "getActiveDelegates#delegates",
-            result: delegates
-        }, null, 4))
 
         return delegates;
     }
