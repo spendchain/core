@@ -258,8 +258,6 @@ export class DatabaseInteraction {
                 });
                 return wallet;
             });
-            // @ts-ignore
-            this.logger.warning(JSON.stringify(delegates.map(d => d.publicKey), null, 4))
         }
 
         for (const delegate of delegates) {

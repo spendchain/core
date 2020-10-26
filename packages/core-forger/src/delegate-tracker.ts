@@ -87,6 +87,12 @@ export class DelegateTracker {
             blockTimeLookup,
         );
 
+        // @ts-ignore
+        this.logger.warning(JSON.stringify({
+            method: 'DelegateTracker#activeDelegatesPublicKeys',
+            result: activeDelegatesPublicKeys
+        }, null, 4))
+
         // Determine Next Forgers...
         const nextForgers: string[] = [];
         for (let i = 0; i <= maxDelegates; i++) {
@@ -97,6 +103,15 @@ export class DelegateTracker {
                 nextForgers.push(delegate);
             }
         }
+
+        // @ts-ignore
+        this.logger.warning(JSON.stringify({
+            method: 'DelegateTracker#nextForgers',
+            result: {
+                height,
+                nextForgers
+            }
+        }, null, 4))
 
         if (activeDelegatesPublicKeys.length < maxDelegates) {
             return this.logger.warning(
