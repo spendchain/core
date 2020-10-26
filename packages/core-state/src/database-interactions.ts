@@ -271,6 +271,8 @@ export class DatabaseInteraction {
         let currentSeed: Buffer = Crypto.HashAlgorithms.sha256(seedSource);
 
         this.logger.warning(JSON.stringify({
+            round,
+            height: this.stateStore.getLastBlock().data.height,
             seedSource,
             currentSeed: currentSeed.toString('hex'),
         }, null, 4))
