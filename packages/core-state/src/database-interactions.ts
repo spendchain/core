@@ -287,7 +287,7 @@ export class DatabaseInteraction {
             }
 
             // @ts-ignore
-            this.logger.warning(`seed: ${currentSeed}`)
+            this.logger.warning(`seed: ${currentSeed.toString('hex')}`)
 
             currentSeed = Crypto.HashAlgorithms.sha256(currentSeed);
         }
