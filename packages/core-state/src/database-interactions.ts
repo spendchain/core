@@ -290,6 +290,11 @@ export class DatabaseInteraction {
                 const b = delegates[newIndex];
                 delegates[newIndex] = delegates[i];
                 delegates[i] = b;
+
+                this.logger.warning(JSON.stringify({
+                    method: 'loop',
+                    result: { i, x, newIndex }
+                }, null, 4))
             }
 
             // @ts-ignore
