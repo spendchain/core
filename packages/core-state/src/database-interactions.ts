@@ -284,24 +284,28 @@ export class DatabaseInteraction {
 
         delegates = delegates.map((delegate) => delegate.clone());
 
+        let seeds = {}
         for (let i = 0, delCount = delegates.length; i < delCount; i++) {
+            const elements = []
             for (let x = 0; x < 4 && i < delCount; i++, x++) {
                 const newIndex = currentSeed[x] % delCount;
                 const b = delegates[newIndex];
                 delegates[newIndex] = delegates[i];
                 delegates[i] = b;
 
-                this.logger.warning(JSON.stringify({
-                    method: 'loop',
-                    result: { i, x, newIndex }
-                }, null, 4))
+                // @ts-ignore
+                elements.push({ i, x, newIndex })
             }
 
-            // @ts-ignore
-            this.logger.warning(`seed: ${currentSeed.toString('hex')}`)
+            seeds[currentSeed.toString('hex')] = elements
 
             currentSeed = Crypto.HashAlgorithms.sha256(currentSeed);
         }
+
+        this.logger.warning(JSON.stringify({
+            method: 'seeds',
+            result: seeds
+        }, null, 4))
 
         return delegates;
     }
