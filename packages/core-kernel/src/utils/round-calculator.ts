@@ -68,11 +68,5 @@ export const calculateRound = (height: number): RoundInfo => {
     result.nextRound = result.round + nextRoundIncrease;
     result.maxDelegates = activeDelegates;
 
-    // @ts-ignore
-    console.log(JSON.stringify({
-        method: "calculateRound",
-        result
-    }))
-
     return result;
 };
