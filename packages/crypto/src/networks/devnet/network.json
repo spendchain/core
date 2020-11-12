@@ -12,7 +12,7 @@
     "aip20": 1,
     "client": {
         "token": "DSPND",
-        "symbol": "DSPND",
+        "symbol": "DS",
         "explorer": "https://dexplorer.spendchain.com"
     }
 }

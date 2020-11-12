@@ -12,7 +12,7 @@
     "aip20": 0,
     "client": {
         "token": "SPND",
-        "symbol": "SPND",
+        "symbol": "S",
         "explorer": "https://explorer.spendchain.com"
     }
 }
