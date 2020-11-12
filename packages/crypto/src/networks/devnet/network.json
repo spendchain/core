@@ -13,6 +13,6 @@
     "client": {
         "token": "SPND",
         "symbol": "SPND",
-        "explorer": "http://0.0.0.0:4200"
+        "explorer": "https://dexplorer.spendchain.net"
     }
 }
